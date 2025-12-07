@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>XYLO Pharmacy — Premium Medical Care & Fast Delivery</title>
+    <meta
+      name="description"
+      content="XYLO Pharmacy — Premium medical care, genuine medicines and fast delivery. Order via WhatsApp or contact us on Instagram."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --card: #f9fafb;
+        --text: #0b1220;
+        --muted: #6b7280;
+        --accent: #007bff; /* blue for medical */
+        --accent2: #d4a017; /* gold for premium */
+        --dark-bg: #0d1116;
+        --dark-card: #0f1720;
+        --dark-text: #e6eef8;
+        --radius: 14px;
+        --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Poppins", system-ui, Arial;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 1150px;
+        margin: 0 auto;
+        padding: 28px;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        position: sticky;
+        top: 0;
+        background: transparent;
+        padding: 14px 28px;
+        z-index: 60;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand img {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .brand .title {
+        font-weight: 700;
+        font-size: 18px;
+      }
+      nav {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .btn-cta {
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      /* header icons */
+      .icons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--card);
+        box-shadow: var(--shadow);
+        cursor: pointer;
+      }
+      .icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: center;
+        padding: 30px 0;
+      }
+      .hero .text h1 {
+        font-size: 34px;
+        margin: 0 0 10px;
+        line-height: 1.02;
+      }
+      .hero .text p {
+        color: var(--muted);
+        margin: 0 0 18px;
+      }
+      .hero .cta-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .slider {
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background: #eee;
+      }
+      .slide {
+        width: 100%;
+        height: 320px;
+        background-size: cover;
+        background-position: center;
+        display: none;
+      }
+      .slide.show {
+        display: block;
+      }
+      .counters {
+        display: flex;
+        gap: 16px;
+        margin-top: 18px;
+        flex-wrap: wrap;
+      }
+      .counter {
+        background: var(--card);
+        padding: 12px;
+        border-radius: 12px;
+        min-width: 130px;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+      .counter h3 {
+        margin: 0;
+        color: var(--accent);
+        font-size: 20px;
+      }
+      .counter p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Sections */
+      section {
+        margin-top: 28px;
+      }
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .card {
+        background: var(--card);
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 18px;
+      }
+      .form input,
+      .form textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        margin-bottom: 10px;
+      }
+      .wh-btn {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        background: #25d366;
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 0;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      footer {
+        margin-top: 36px;
+        padding: 18px 0;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Dark theme */
+      .dark {
+        --bg: var(--dark-bg);
+        --card: var(--dark-card);
+        --text: var(--dark-text);
+        --muted: #98a8c3;
+      }
+      .dark header {
+        background: rgba(0, 0, 0, 0.25);
+      }
+      .dark .slide {
+        filter: brightness(0.9);
+      }
+      /* small helpers */
+      .muted {
+        color: var(--muted);
+      }
+      .small {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .flex {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- HEADER -->
+      <header>
+        <div class="brand">
+          <img
+            id="logo"
+            src="logo.png"
+            alt="XYLO logo"
+            onerror="this.style.display='none'"
+          />
+          <div>
+            <div class="title">XYLO Pharmacy</div>
+            <div class="small">Premium Medical Care & Fast Delivery</div>
+          </div>
+        </div>
+
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+          <!-- Instagram icon in header -->
+          <a
+            href="https://instagram.com/xylo.hub"
+            target="_blank"
+            title="Instagram"
+            style="text-decoration: none"
+          >
+            <div class="icon" aria-hidden="true">
+              <!-- IG SVG -->
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
+                  stroke="#C29D48"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"
+                  stroke="#C29D48"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M17.8 6.2h.01"
+                  stroke="#C29D48"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <!-- Theme toggle -->
+          <div
+            class="icon"
+            id="themeToggle"
+            title="Toggle theme"
+            style="cursor: pointer"
+          >
+            <svg
+              id="themeIcon"
+              viewBox="0 0 24 24"
+              fill="none"
+              width="18"
+              height="18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 3v2"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12 19v2"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4.2 4.2l1.4 1.4"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18.4 18.4l1.4 1.4"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M1 12h2"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21 12h2"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4.2 19.8l1.4-1.4"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M18.4 5.6l1.4-1.4"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+                stroke="#111"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <!-- WhatsApp quick -->
+          <button class="btn-cta" id="whQuick">WhatsApp</button>
+        </nav>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="text">
+          <h1>Premium Medical Care & Fast Delivery For Everyone.</h1>
+          <p class="muted">
+            XYLO Pharmacy provides genuine medicines, certified consultation and
+            quick home delivery. Order or reserve medicines easily via WhatsApp.
+          </p>
+          <div class="cta-row">
+            <button class="btn-cta" id="orderHero">Order on WhatsApp</button>
+            <button
+              class="btn-cta"
+              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+              style="
+                background: #fff;
+                color: var(--accent);
+                border: 1px solid #eee;
+              "
+            >
+              Contact Us
+            </button>
+          </div>
+
+          <!-- counters -->
+          <div class="counters" style="margin-top: 18px">
+            <div class="counter">
+              <h3 id="c1">0</h3>
+              <p class="small">Trusted Patients</p>
+            </div>
+            <div class="counter">
+              <h3 id="c2">0</h3>
+              <p class="small">Partner Clinics</p>
+            </div>
+            <div class="counter">
+              <h3 id="c3">0</h3>
+              <p class="small">Medicines In Stock</p>
+            </div>
+            <div class="counter">
+              <h3 id="c4">0</h3>
+              <p class="small">Orders Delivered</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider" aria-hidden="false">
+          <div
+            class="slide show"
+            style="background-image: url('pharmacy3.jpeg')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('pharmacy2.jpeg')"
+          ></div>
+          <div
+            class="slide"
+            style="background-image: url('pharmacy1.jpeg')"
+          ></div>
+        </div>
+      </section>
+
+      <!-- SERVICES / PRODUCTS -->
+      <section id="services">
+        <h2 style="margin: 0 0 12px">Our Services</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Prescription Medicines</h3>
+            <p class="muted">
+              Original, high-quality medicines dispensed by certified
+              pharmacists. Upload prescription, we verify and deliver.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Online Consultation</h3>
+            <p class="muted">
+              Talk to pharmacists & doctors for basic guidance and medicine
+              recommendations (fees may apply).
+            </p>
+          </div>
+          <div class="card">
+            <h3>Express Delivery</h3>
+            <p class="muted">
+              Fast delivery to home & hospitals. Track your order and receive
+              confirmation via WhatsApp.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS SAMPLE -->
+      <section id="products">
+        <h2 style="margin: 0 0 12px">Featured Products</h2>
+        <div class="grid-3">
+          <div class="card">
+            <img
+              src="product2.jpeg"
+              alt=""
+              style="width: 100%; border-radius: 10px; margin-bottom: 10px"
+            />
+            <strong>Paracetamol 500mg</strong>
+            <p class="muted">Relief from fever & pain. 20 tablets.</p>
+          </div>
+          <div class="card">
+            <img
+              src="product.jpeg"
+              alt="products"
+              style="width: 100%; border-radius: 10px; margin-bottom: 10px"
+            />
+            <strong>Vitamin C 1000mg</strong>
+            <p class="muted">Boosts immunity. 30 tablets.</p>
+          </div>
+          <div class="card">
+            <img
+              src="product1.jpeg"
+              alt="pharmacy"
+              style="width: 100%; border-radius: 10px; margin-bottom: 10px"
+            />
+            <strong>best herbs for your body</strong>
+            <p class="muted">Best herbs for your body.</p>
+          </div>
+          <div class="card">
+            <img
+              src="product3.jpeg"
+              alt="pharmacy"
+              style="width: 100%; border-radius: 10px; margin-bottom: 10px"
+            />
+            <strong>Best skin care lotions</strong>
+            <p class="muted">Best skin care lotions.</p>
+          </div>
+          <div class="card">
+            <img
+              src="product4.jpeg"
+              alt="pharmacy"
+              style="width: 100%; border-radius: 10px; margin-bottom: 10px"
+            />
+            <strong>best herbs for your body</strong>
+            <p class="muted">Best herbs for your body.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery">
+        <h2 style="margin: 0 0 12px">Gallery</h2>
+        <div class="gallery">
+          <img src="pharmacy.jpeg" alt="pharmacy" />
+          <img src="pharmacy1.jpeg" alt="doctors" />
+          <img src="pharmacy2.jpeg" alt="pharmacy" />
+          <img src="pharmacy3.jpeg" alt="pharmacy" />
+          <img src="pharmacy4.jpeg" alt="pharmacy" />
+          <img src="pharmacy5.jpeg" alt="pharmacy" />
+          <img src="pharmacy6.jpeg" alt="pharmacy" />
+          <img src="pharmacy4.jpeg" alt="pharmacy" />
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2 style="margin: 0 0 12px">Contact & Order</h2>
+        <div class="contact-grid">
+          <div class="card form">
+            <label class="small">Your Name</label>
+            <input id="custName" placeholder="Full name" />
+            <label class="small">Phone or Email</label>
+            <input id="custContact" placeholder="+2507... or email" />
+            <label class="small">Order / Message</label>
+            <textarea
+              id="custMsg"
+              rows="5"
+              placeholder="Type medicines or details..."
+            ></textarea>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap">
+              <button class="wh-btn" id="sendWhats">Send via WhatsApp</button>
+              <button
+                class="btn-cta"
+                id="sendEmail"
+                style="
+                  background: #fff;
+                  color: var(--accent);
+                  border: 1px solid #eee;
+                "
+              >
+                Send Email
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div class="card" style="margin-bottom: 12px">
+              <h3>Contact Info</h3>
+              <p class="muted" style="margin: 6px 0">
+                <strong>WhatsApp:</strong> +250794482542
+              </p>
+              <p class="muted" style="margin: 6px 0">
+                <strong>Email:</strong> xylohub6@gmail.com
+              </p>
+              <p class="muted" style="margin: 6px 0">
+                <strong>Instagram:</strong>
+                <a href="https://instagram.com/xylo.hub" target="_blank"
+                  >@xylo.hub</a
+                >
+              </p>
+              <p class="muted" style="margin: 6px 0">
+                <strong>Address:</strong> 123 Main Street, YourCity
+              </p>
+            </div>
+
+            <div class="card">
+              <h4>Opening Hours</h4>
+              <p class="muted" style="margin: 6px 0">
+                Mon – Sun: 07:00 AM – 08:00 PM
+              </p>
+              <h4 style="margin-top: 12px">Quick Actions</h4>
+              <div style="display: flex; gap: 8px; margin-top: 8px">
+                <button class="btn-cta" id="quickOrder">WhatsApp Order</button>
+                <a
+                  href="https://instagram.com/xylo.hub"
+                  target="_blank"
+                  class="btn-cta"
+                  style="background: #111"
+                  >Instagram</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © 2025 XYLO Pharmacy — Premium Medical Care & Fast Delivery
+      </footer>
+    </div>
+
+    <script>
+      /***** CONFIG: change here if needed *****/
+      const BUSINESS_WHATSAPP = "+250794482542";
+      const BUSINESS_EMAIL = "xylohub6@gmail.com";
+      const INSTAGRAM = "https://instagram.com/xylo.hub";
+      /***************************************/
+
+      // Theme toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+      const root = document.documentElement;
+      let dark = false;
+      themeToggle.onclick = () => {
+        dark = !dark;
+        if (dark) root.classList.add("dark");
+        else root.classList.remove("dark");
+      };
+
+      // Hero slider
+      const slides = document.querySelectorAll(".slide");
+      let si = 0;
+      setInterval(() => {
+        slides[si].classList.remove("show");
+        si = (si + 1) % slides.length;
+        slides[si].classList.add("show");
+      }, 4500);
+
+      // Animated counters on scroll
+      const counters = [
+        { id: "c1", to: 12000 },
+        { id: "c2", to: 85 },
+        { id: "c3", to: 4200 },
+        { id: "c4", to: 9800 },
+      ];
+      let counted = false;
+      function animateCounters() {
+        if (counted) return;
+        const el = document.querySelector("#c1");
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          counted = true;
+          counters.forEach((c) => {
+            const elc = document.getElementById(c.id);
+            let start = 0;
+            const dur = 1600;
+            const step = Math.ceil(c.to / (dur / 16));
+            const t = setInterval(() => {
+              start += step;
+              if (start >= c.to) {
+                elc.textContent = c.to.toLocaleString();
+                clearInterval(t);
+              } else elc.textContent = start.toLocaleString();
+            }, 16);
+          });
+        }
+      }
+      window.addEventListener("scroll", animateCounters);
+      window.addEventListener("load", animateCounters);
+
+      // WhatsApp order actions
+      function openWaMessage(text) {
+        const encoded = encodeURIComponent(text);
+        const phone = BUSINESS_WHATSAPP.replace(/\D/g, "");
+        const url = `https://wa.me/${phone}?text=${encoded}`;
+        window.open(url, "_blank");
+      }
+
+      document.getElementById("orderHero").addEventListener("click", () => {
+        openWaMessage(
+          "Hello XYLO, I would like to place an order. Please assist."
+        );
+      });
+      document.getElementById("whQuick").addEventListener("click", () => {
+        openWaMessage("Hello XYLO, I need assistance with medicines.");
+      });
+      document.getElementById("quickOrder").addEventListener("click", () => {
+        openWaMessage("Hi, I want to order medicine for pickup.");
+      });
+
+      // Contact form buttons
+      document.getElementById("sendWhats").addEventListener("click", () => {
+        const name = document.getElementById("custName").value || "Guest";
+        const contact = document.getElementById("custContact").value || "-";
+        const msg = document.getElementById("custMsg").value || "Order enquiry";
+        openWaMessage(
+          `Order request:%0AName: ${name}%0AContact: ${contact}%0ADetails: ${msg}`
+        );
+      });
+
+      document.getElementById("sendEmail").addEventListener("click", () => {
+        const name = document.getElementById("custName").value || "Guest";
+        const contact = document.getElementById("custContact").value || "-";
+        const msg = encodeURIComponent(
+          document.getElementById("custMsg").value || "Order enquiry"
+        );
+        location.href = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(
+          "Order Request from " + name
+        )}&body=${encodeURIComponent("Contact: " + contact + "\n\n")}${msg}`;
+      });
+
+      // basic lazy load attribute
+      document.addEventListener("DOMContentLoaded", () =>
+        document
+          .querySelectorAll("img")
+          .forEach((i) => i.setAttribute("loading", "lazy"))
+      );
+
+      // replace logo if not present (draw simple badge)
+      const logoImg = document.getElementById("logo");
+      logoImg.onerror = function () {
+        this.style.display = "none";
+        const b = document.createElement("div");
+        b.style.width = "48px";
+        b.style.height = "48px";
+        b.style.borderRadius = "10px";
+        b.style.background =
+          "linear-gradient(135deg,var(--accent),var(--accent2))";
+        b.style.display = "flex";
+        b.style.alignItems = "center";
+        b.style.justifyContent = "center";
+        b.style.color = "#fff";
+        b.style.fontWeight = "700";
+        b.style.fontSize = "16px";
+        b.textContent = "XY";
+        this.parentNode.prepend(b);
+      };
+    </script>
+  </body>
+</html>
